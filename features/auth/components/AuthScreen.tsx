@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export function AuthScreen() {
   return (
-    // ✅ Root wrapper (scroll works naturally)
-    <div className="min-h-dvh bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95">
+    <div className="min-h-dvh bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 overflow-y-auto lg:overflow-hidden">
       
       {/* Floating background blobs - FULL RESPONSIVE */}
       <div className="fixed inset-0 opacity-10 pointer-events-none overflow-hidden z-0">
@@ -20,14 +19,14 @@ export function AuthScreen() {
       </div>
 
       {/* ✅ FULL RESPONSIVE LAYOUT */}
-      <main className="relative flex min-h-dvh flex-col items-center justify-center px-4 py-8 sm:py-12 md:py-16 z-10">
-        <section className="relative w-full max-w-sm sm:max-w-lg md:max-w-4xl mx-auto overflow-visible rounded-4xl border-4 border-white/40 bg-gradient-to-br from-white/95 via-rose-50/95 to-pink-50/95 shadow-2xl backdrop-blur-3xl">
+      <main className="relative flex min-h-dvh flex-col items-center justify-center px-4 py-8 sm:py-12 md:py-16 z-10 overflow-y-auto lg:overflow-hidden">
+<section className="relative w-full max-w-sm sm:max-w-lg md:max-w-4xl mx-auto overflow-visible rounded-4xl border-4 border-white/40 bg-gradient-to-br from-white/95 via-rose-50/95 to-pink-50/95 shadow-2xl backdrop-blur-3xl max-h-[85vh] md:max-h-none overflow-y-auto md:overflow-hidden flex flex-col">
           
           {/* ================= MOBILE STACKED LAYOUT ================= */}
-          <div className="flex flex-col md:grid md:grid-cols-2 p-4 sm:p-6 md:p-8 gap-6 md:gap-0">
+          <div className="flex flex-col md:grid md:grid-cols-2 p-4 sm:p-6 md:p-8 gap-6 md:gap-0 overflow-y-auto md:overflow-hidden max-h-full md:max-h-none">
             
             {/* ================= LEFT SIDE - Features ================= */}
-            <div className="flex flex-col justify-between border-b border-white/30 md:border-b-0 md:border-r bg-gradient-to-br from-white/90 via-rose-50/90 to-pink-50/90 p-4 sm:p-6 md:p-8 backdrop-blur-xl shadow-inner shadow-rose-200/30 order-2 md:order-1">
+            <div className="flex flex-col justify-between border-b border-white/30 md:border-b-0 md:border-r bg-gradient-to-br from-white/90 via-rose-50/90 to-pink-50/90 p-4 sm:p-6 md:p-8 backdrop-blur-xl shadow-inner shadow-rose-200/30 order-2 md:order-1 overflow-y-auto md:overflow-hidden pb-6 md:pb-0">
               
               {/* Header */}
               <div className="mb-6 sm:mb-8">
@@ -105,7 +104,7 @@ export function AuthScreen() {
             </div>
 
             {/* ================= RIGHT SIDE - Buttons ================= */}
-            <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-white/95 via-rose-50/95 to-pink-50/95 order-1 md:order-2">
+            <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-white/95 via-rose-50/95 to-pink-50/95 order-1 md:order-2 overflow-y-auto md:overflow-visible\">
               
               <div className="text-center mb-6 sm:mb-8 md:mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent leading-tight">

@@ -25,10 +25,10 @@ export function UserSearchList({
   const hasSearch = Boolean(search.trim());
 
   return (
-    <section className="space-y-2 border-b border-rose-200/50 bg-gradient-to-br from-rose-50/90 via-pink-50/90 to-purple-100/90 p-5 backdrop-blur-xl shadow-lg shadow-rose-200/40 rounded-xl">
+    <section className="space-y-1.5 border-b border-rose-200/40 bg-gradient-to-br from-rose-50/80 via-pink-50/80 to-purple-100/80 px-4 py-3 backdrop-blur-xl shadow-sm shadow-rose-200/30 rounded-lg">
       
       {/* Love Header */}
-      <p className="text-sm font-black uppercase tracking-widest bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg">
+      <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow">
         💕 Start Love Chat
       </p>
 
@@ -38,13 +38,13 @@ export function UserSearchList({
         <Input
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
-          placeholder="💖 Search for love connections..."
-          className="h-8 pl-8 pr-2 rounded-3xl border-2 border-rose-200/50 bg-white/80 text-rose-700 font-semibold placeholder:text-rose-400 focus:border-rose-500/70 focus:ring-2 focus:ring-rose-400/30 shadow-xl backdrop-blur-xl hover:shadow-rose-300/20 transition-all duration-300"
+          placeholder="💖 Search connections..."
+          className="h-7 pl-7 pr-2 text-xs rounded-2xl border-1.5 border-rose-200/40 bg-white/70 text-rose-700 font-semibold placeholder:text-rose-400/60 focus:border-rose-500/50 focus:ring-1 focus:ring-rose-400/20 shadow-sm backdrop-blur-sm hover:shadow-rose-300/10 transition-all duration-200"
         />
       </div>
 
       {/* Love Connections List */}
-      <div className="max-h-48 space-y-2 overflow-y-auto rounded-xl border-2 border-rose-200/50 bg-white/70 p-3 shadow-xl shadow-rose-100/50 backdrop-blur-xl scrollbar-thin scrollbar-thumb-rose-400/50 scrollbar-track-rose-50/50">
+      <div className="max-h-32 space-y-1 overflow-y-auto rounded-lg border-1.5 border-rose-200/40 bg-white/60 p-2 shadow-md shadow-rose-100/30 backdrop-blur-sm scrollbar-thin scrollbar-thumb-rose-400/40 scrollbar-track-rose-50/40">
         {users.map((user) => (
           <Button
             key={user._id}

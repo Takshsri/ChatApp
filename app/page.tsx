@@ -9,7 +9,7 @@ export default function Home() {
 
   if (!clerkConfigured) {
     return (
-      <main className="flex min-h-screen items-center justify-center p-4">
+      <main className="flex min-h-dvh items-center justify-center p-4 overflow-y-auto lg:overflow-hidden">
         <div className="w-full max-w-lg rounded-xl border bg-card p-6 shadow-sm">
           <h1 className="text-lg font-semibold">Configure Clerk to start chat</h1>
           <p className="mt-2 text-sm text-muted-foreground">

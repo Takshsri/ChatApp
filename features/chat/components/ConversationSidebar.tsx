@@ -35,7 +35,7 @@ export function ConversationSidebar({
   onConversationSelect,
 }: ConversationSidebarProps) {
   return (
-    <aside className="group relative flex w-full flex-col border-r bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-full lg:w-90 shadow-2xl shadow-rose-200/60 backdrop-blur-xl overflow-y-auto lg:overflow-hidden lg:min-h-0">
+    <aside className="group relative flex w-full flex-col border-r bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-full lg:w-90 shadow-2xl shadow-rose-200/60 backdrop-blur-xl overflow-hidden lg:overflow-hidden lg:min-h-0">
       
       {/* ✨ Romantic Floating Hearts */}
       <div className="absolute inset-0 opacity-25 pointer-events-none overflow-hidden">
@@ -100,6 +100,7 @@ export function ConversationSidebar({
       </header>
 
       {/* ================= SEARCH (LOVE THEMED) ================= */}
+      <div className="shrink-0 sticky top-0 z-30 border-b border-rose-200/40 bg-gradient-to-br from-rose-50/80 via-pink-50/80 to-purple-100/80 px-3 py-3 backdrop-blur-xl shadow-sm shadow-rose-200/30">
       <UserSearchList
         search={search}
         users={searchedUsers}
@@ -107,24 +108,25 @@ export function ConversationSidebar({
         onUserSelect={onUserSelect}
         onCreateGroup={onCreateGroup}
       />
+      </div>
 
       {actionError && (
-        <div className="mx-5 mt-4 mb-3 rounded-3xl border-2 border-rose-400/60 bg-gradient-to-r from-rose-100/95 to-pink-100/95 px-5 py-4 text-sm font-semibold text-rose-600 shadow-xl shadow-rose-300/40 backdrop-blur-xl animate-pulse">
+        <div className="shrink-0 mx-2 mt-2 mb-1 rounded-lg border-1.5 border-rose-400/60 bg-gradient-to-r from-rose-100/90 to-pink-100/90 px-3 py-2 text-xs font-semibold text-rose-600 shadow-md shadow-rose-300/30 backdrop-blur-sm animate-pulse">
           💔 {actionError}
         </div>
       )}
 
-      {/* ================= SCROLLABLE AREA ================= */}
-      <div className="flex-1 min-h-0 flex flex-col relative z-10">
-        <div className="flex-1 overflow-y-auto px-5 pb-8 pt-4 space-y-4 scrollbar-thin scrollbar-thumb-rose-400/60 scrollbar-track-rose-50/50">
+      {/* ================= SCROLLABLE CONVERSATIONS AREA ================= */}
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden scroll-smooth">
+        <div className="px-2 py-2 space-y-2">
           
           {/* Love Conversations Header */}
-          <p className=" top-0 z-20 mb-5 px-4 py-3 rounded-2xl bg-gradient-to-r from-rose-500/20 via-pink-500/20 to-purple-500/20 text-lg font-black text bg-clip-text backdrop-blur-xl border border-rose-300/50 shadow-lg shadow-rose-200/30">
+          <p className="sticky top-0 z-20 mb-2 px-3 py-1 rounded-lg bg-gradient-to-r from-rose-500/15 via-pink-500/15 to-purple-500/15 text-xs font-bold text-rose-700 bg-clip-text backdrop-blur-sm border border-rose-300/30 shadow-sm shadow-rose-200/15">
             💝 Love Conversations
           </p>
 
           {conversations.length ? (
-            <ul className="space-y-4">
+            <ul className="space-y-1">
               {conversations.map((conversation) => {
                 const isActive = activeConversationId === conversation._id;
                 const title = conversation.isGroup
@@ -139,13 +141,13 @@ export function ConversationSidebar({
 
                 return (
                   <li key={conversation._id}>
-                    <Button
-                      variant="ghost"
-                      className={`relative w-full justify-start gap-4 rounded-2xl px-6 py-6 transition-all duration-500 group hover:shadow-2xl hover:shadow-rose-400/50 backdrop-blur-xl border-2 ${
-                        isActive
-                          ? "border-rose-500/70 bg-gradient-to-r from-rose-500/25 via-pink-500/20 to-purple-500/25 shadow-2xl shadow-rose-500/50 ring-4 ring-rose-400/50 scale-[1.02] animate-pulse"
-                          : "border-rose-200/50 hover:border-rose-400/70 hover:bg-gradient-to-r hover:from-rose-50/90 hover:to-pink-50/90 hover:scale-[1.01]"
-                      }`}
+                  <Button
+                    variant="ghost"
+                    className={`relative w-full justify-start gap-1.5 rounded-md px-2 py-1.5 text-xs transition-all duration-200 group hover:shadow-sm hover:shadow-rose-400/20 backdrop-blur-sm border-1 ${
+                      isActive
+                        ? "border-rose-500/50 bg-gradient-to-r from-rose-500/12 via-pink-500/10 to-purple-500/12 shadow-sm shadow-rose-500/25 ring-1 ring-rose-400/30"
+                        : "border-rose-200/25 hover:border-rose-400/40 hover:bg-rose-50/40"
+                    }`}
                       onClick={() => onConversationSelect(conversation._id)}
                     >
                       {/* Active glow effect */}
@@ -155,7 +157,7 @@ export function ConversationSidebar({
 
                       {/* Avatar with love theme */}
                       <div className="relative flex-shrink-0">
-                        <Avatar className="h-12 w-12 ring-2 ring-white/80 shadow-2xl border-4 border-rose-200/50">
+                      <Avatar className="h-9 w-9 ring-1 ring-white/60 shadow-sm border-1.5 border-rose-200/30 flex-shrink-0">
                           <AvatarImage
                             src={conversation.otherMember?.image}
                             alt={title}
@@ -173,19 +175,19 @@ export function ConversationSidebar({
                       </div>
 
                       {/* Conversation details */}
-                      <div className="flex-1 text-left min-w-0">
-                        <div className="flex justify-between items-start gap-3 mb-1">
-                          <p className={`font-black text-lg leading-tight truncate ${
+                      <div className="flex-1 text-left min-w-0 space-y-0.5">
+                        <div className="flex justify-between items-center gap-2">
+                          <p className={`font-bold text-xs leading-tight truncate ${
                             isActive
-                              ? "bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg"
-                              : "text-slate-900 group-hover:text-rose-700 group-hover:drop-shadow-sm"
+                              ? "bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm"
+                              : "text-slate-900 group-hover:text-rose-700"
                           }`}>
                             {title}
                           </p>
                           {conversation.lastMessage && (
-                            <span className={`text-sm font-semibold whitespace-nowrap ${
+                            <span className={`text-xs font-semibold whitespace-nowrap ${
                               isActive
-                                ? "bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm"
+                                ? "bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent drop-shadow-none"
                                 : "text-rose-500 group-hover:text-rose-600"
                             }`}>
                               {formatChatTimestamp(conversation.lastMessage.createdAt)}
@@ -193,10 +195,10 @@ export function ConversationSidebar({
                           )}
                         </div>
 
-                        <p className={`text-base leading-tight truncate ${
+                        <p className={`text-xs leading-tight truncate ${
                           isActive
-                            ? "font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent drop-shadow-sm"
-                            : "text-rose-500 group-hover:text-rose-600"
+                            ? "font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent drop-shadow-none"
+                            : "text-slate-700 group-hover:text-rose-600"
                         }`}>
                           {preview}
                         </p>
@@ -218,14 +220,14 @@ export function ConversationSidebar({
               })}
             </ul>
           ) : (
-            <div className="flex h-full flex-col items-center justify-center p-12 text-center backdrop-blur-xl rounded-3xl border-4 border-rose-300/70 bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 shadow-2xl shadow-rose-300/60">
-              <div className="mb-8 p-8 rounded-3xl bg-gradient-to-br from-rose-500/30 via-pink-500/30 to-purple-500/30 shadow-2xl shadow-rose-500/40 border-4 border-white/60 backdrop-blur-xl">
-                <HeartHandshake className="h-24 w-24 text-rose-500 drop-shadow-2xl animate-pulse" />
+            <div className="flex flex-col items-center justify-center p-4 text-center backdrop-blur-sm rounded-lg border-2 border-rose-300/50 bg-gradient-to-br from-rose-50/80 via-pink-50/80 to-purple-100/80 shadow-md shadow-rose-300/30 my-4">
+              <div className="mb-2 p-4 rounded-lg bg-gradient-to-br from-rose-500/15 via-pink-500/15 to-purple-500/15 shadow-md shadow-rose-500/20 border-2 border-white/40 backdrop-blur-sm">
+                <HeartHandshake className="h-12 w-12 text-rose-500 drop-shadow-md animate-pulse" />
               </div>
-              <p className="text-3xl font-black mb-4 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-2xl">
+              <p className="text-sm font-bold mb-1 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow">
                 💝 No Love Conversations Yet
               </p>
-              <p className="text-xl font-semibold max-w-md bg-gradient-to-r from-rose-500/90 via-pink-500/90 to-purple-500/90 bg-clip-text text-transparent drop-shadow-xl leading-relaxed">
+              <p className="text-xs font-semibold max-w-xs bg-gradient-to-r from-rose-600/70 via-pink-600/70 to-purple-600/70 bg-clip-text text-transparent drop-shadow-sm leading-tight">
                 ✨ Find your special someone and start your romantic journey together 💕
               </p>
             </div>
@@ -241,19 +243,19 @@ export function ConversationSidebar({
         .animate-float-heart {
           animation: float-heart 3s ease-in-out infinite;
         }
-        .scrollbar-thin::-webkit-scrollbar {
-          width: 8px;
+        /* Smooth scrollbar for the sidebar */
+        aside::-webkit-scrollbar {
+          width: 6px;
         }
-        .scrollbar-thin::-webkit-scrollbar-track {
-          background: rgba(244, 63, 94, 0.1);
-          border-radius: 10px;
+        aside::-webkit-scrollbar-track {
+          background: transparent;
         }
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, rgba(244, 63, 94, 0.4), rgba(236, 72, 153, 0.4));
-          border-radius: 10px;
+        aside::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, rgba(244, 63, 94, 0.3), rgba(236, 72, 153, 0.3));
+          border-radius: 3px;
         }
-        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, rgba(244, 63, 94, 0.6), rgba(236, 72, 153, 0.6));
+        aside::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, rgba(244, 63, 94, 0.5), rgba(236, 72, 153, 0.5));
         }
       `}</style>
     </aside>

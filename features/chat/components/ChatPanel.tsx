@@ -318,8 +318,8 @@ export function ChatPanel({
                 <div
                   className={`rounded-2xl text-sm shadow-sm transition-all duration-200 hover:shadow ${
                     isMine
-                      ? "max-w-[68%] rounded-br-md bg-pink-500 text-white px-2.5 py-1.5 text-pink-foreground lg:max-w-[46%]"
-                      : "max-w-[88%] rounded-bl-md border bg-card px-3 py-2 lg:max-w-[72%]"
+                      ? "max-w-[68%] rounded-br-md bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-white px-3 py-2 shadow-lg shadow-rose-400/40 lg:max-w-[46%]"
+                      : "max-w-[88%] rounded-bl-md border-2 border-rose-300/60 bg-gradient-to-br from-white/90 to-rose-50/80 px-3 py-2 text-slate-900 shadow-md shadow-rose-200/30 lg:max-w-[72%]"
                   }`}
                 >
                   {!isMine ? <p className="mb-1 text-xs font-semibold">{senderName}</p> : null}
@@ -522,34 +522,34 @@ export function ChatPanel({
 
         <div
           ref={composerRef}
-          className="flex items-end gap-2 rounded-2xl border bg-background p-2 shadow-sm"
+          className="flex items-end gap-3 rounded-3xl border-2 border-rose-400/60 bg-gradient-to-r from-white/95 via-rose-50/95 to-pink-50/95 p-3 shadow-lg shadow-rose-300/40 backdrop-blur-xl"
         >
           <div className="flex items-center gap-1">
             <button
               type="button"
               onClick={() => setIsEmojiPickerOpen((value) => !value)}
-              className="rounded-full p-2 text-muted-foreground transition hover:bg-muted"
+              className="rounded-full p-2 text-rose-500 transition hover:bg-rose-500/20 hover:text-rose-600 hover:shadow-md hover:shadow-rose-300/50"
               aria-label="Open emoji picker"
             >
-              <Smile className="h-4 w-4" />
+              <Smile className="h-5 w-5" />
             </button>
 
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="rounded-full p-2 text-muted-foreground transition hover:bg-muted"
+              className="rounded-full p-2 text-pink-500 transition hover:bg-pink-500/20 hover:text-pink-600 hover:shadow-md hover:shadow-pink-300/50"
               aria-label="Attach file"
             >
-              <Paperclip className="h-4 w-4" />
+              <Paperclip className="h-5 w-5" />
             </button>
 
             <button
               type="button"
               onClick={() => imageInputRef.current?.click()}
-              className="rounded-full p-2 text-muted-foreground transition hover:bg-muted"
+              className="rounded-full p-2 text-purple-500 transition hover:bg-purple-500/20 hover:text-purple-600 hover:shadow-md hover:shadow-purple-300/50"
               aria-label="Attach photo"
             >
-              <Camera className="h-4 w-4" />
+              <Camera className="h-5 w-5" />
             </button>
           </div>
 
@@ -557,7 +557,7 @@ export function ChatPanel({
             ref={textareaRef}
             value={draft}
             onChange={(event) => handleTyping(event.target.value)}
-            placeholder="Type a message..."
+            placeholder="💕 Type your love message..."
             onKeyDown={(event) => {
               if (event.key === "Enter" && !event.shiftKey) {
                 event.preventDefault();
@@ -565,26 +565,26 @@ export function ChatPanel({
               }
             }}
             disabled={isUploading}
-            className="max-h-36 min-h-11 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0"
+            className="max-h-36 min-h-11 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0 text-rose-700 font-semibold placeholder:text-rose-400/70"
           />
           <Button
             onClick={() => void handleSend()}
             aria-label="Send message"
-            className="h-10 rounded-full px-3"
+            className="h-11 w-11 rounded-full p-0 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:via-pink-600 hover:to-purple-600 text-white shadow-lg shadow-rose-400/50 hover:shadow-rose-500/70 transition-all hover:scale-105 font-bold"
             disabled={isUploading}
           >
-            <CornerDownLeft className="h-4 w-4" />
+            <CornerDownLeft className="h-5 w-5" />
           </Button>
         </div>
 
         {isEmojiPickerOpen ? (
-          <div className="mt-2 flex flex-wrap gap-2 rounded-xl border bg-card p-2 shadow-sm">
+          <div className="mt-2 flex flex-wrap gap-2 rounded-2xl border-2 border-rose-300/60 bg-gradient-to-r from-white/90 via-rose-50/90 to-pink-50/90 p-3 shadow-lg shadow-rose-200/40 backdrop-blur-xl">
             {composerEmojis.map((emoji) => (
               <button
                 key={`composer-${emoji}`}
                 type="button"
                 onClick={() => handleAddEmoji(emoji)}
-                className="rounded-lg border px-2 py-1 text-base transition hover:bg-muted"
+                className="rounded-xl border-2 border-rose-300/50 bg-white/80 px-3 py-1.5 text-lg transition hover:bg-gradient-to-r hover:from-rose-500/20 hover:to-pink-500/20 hover:border-rose-400/80 hover:shadow-md hover:shadow-rose-300/50"
                 aria-label={`Insert ${emoji}`}
               >
                 {emoji}
