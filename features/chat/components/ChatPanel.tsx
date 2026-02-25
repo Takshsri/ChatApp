@@ -267,29 +267,29 @@ export function ChatPanel({
 
   return (
     <section className="relative flex flex-col w-full min-h-full lg:h-full lg:min-h-0 flex-1 bg-muted/20">
-      <header className="shrink-0 flex items-center gap-2 border-b bg-card/95 p-3 backdrop-blur sticky top-0 z-20">
+      <header className="shrink-0 flex items-center gap-2 border-b-2 border-rose-300/60 bg-gradient-to-r from-rose-500/95 via-pink-500/95 to-purple-500/95 p-3 backdrop-blur sticky top-0 z-20 shadow-lg shadow-rose-400/30">
         {isMobile ? (
-          <Button size="icon" variant="ghost" onClick={onBack} aria-label="Back to conversations">
+          <Button size="icon" variant="ghost" onClick={onBack} aria-label="Back to conversations" className="text-white hover:bg-white/20">
             <ArrowLeft className="h-4 w-4" />
           </Button>
         ) : null}
 
         <div className="relative">
-          <Avatar className="h-9 w-9">
+          <Avatar className="h-9 w-9 ring-2 ring-white/30">
             <AvatarImage src={conversation.otherMember?.image} alt={title} />
-            <AvatarFallback>{title.slice(0, 1).toUpperCase()}</AvatarFallback>
+            <AvatarFallback className="bg-white/20 text-white font-bold">{title.slice(0, 1).toUpperCase()}</AvatarFallback>
           </Avatar>
           {!conversation.isGroup && conversation.otherMember?.isOnline ? (
-            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-background bg-emerald-500" />
+            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-rose-400 shadow-md shadow-rose-400/50" />
           ) : null}
         </div>
 
         <div>
-          <p className="text-sm font-semibold">{title}</p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm font-bold text-white">{title}</p>
+          <p className="text-xs text-white/85">
             {conversation.isGroup
               ? `${conversation.groupOnlineCount}/${conversation.groupMembers.length} online`
-              : (conversation.otherMember?.isOnline ? "Online" : "Offline")}
+              : (conversation.otherMember?.isOnline ? "🟢 Online" : "⚫ Offline")}
           </p>
         </div>
       </header>
@@ -451,13 +451,12 @@ export function ChatPanel({
       </div>
 
       {showNewMessagesButton ? (
-        <div className="pointer-events-none absolute bottom-28 left-0 right-0 flex justify-center">
+        <div className="pointer-events-none absolute bottom-28 left-0 right-0 flex justify-center z-50">
           <Button
-            className="pointer-events-auto shadow-sm"
-            size="sm"
+            className="pointer-events-auto shadow-2xl shadow-rose-500/60 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:via-pink-600 hover:to-purple-600 text-white font-bold rounded-full px-8 py-3 text-sm border-2 border-white/30 transition-all duration-300 hover:scale-110 animate-bounce"
             onClick={() => scrollToBottom()}
           >
-            New messages
+            💌 New Messages
           </Button>
         </div>
       ) : null}
