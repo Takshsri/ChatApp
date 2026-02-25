@@ -242,7 +242,7 @@ export function ChatPanel({
 
   if (conversation === undefined) {
     return (
-      <section className="flex h-full flex-1 flex-col gap-3 p-3">
+      <section className="flex min-h-full lg:h-full flex-1 flex-col gap-3 p-3">
         <Skeleton className="h-12 w-full" />
         <Skeleton className="h-20 w-3/4" />
         <Skeleton className="h-20 w-2/3 self-end" />
@@ -253,7 +253,7 @@ export function ChatPanel({
 
   if (conversation === null) {
     return (
-      <section className="flex h-full flex-1 items-center justify-center p-4 text-center">
+      <section className="flex min-h-full lg:h-full flex-1 items-center justify-center p-4 text-center">
         <p className="text-sm text-muted-foreground">
           Conversation is unavailable. Please select another one.
         </p>
@@ -266,8 +266,8 @@ export function ChatPanel({
     : (conversation.otherMember?.name ?? "Conversation");
 
   return (
-    <section className="relative flex h-full min-h-0 flex-1 flex-col bg-muted/20">
-      <header className="shrink-0 flex items-center gap-2 border-b bg-card/95 p-3 backdrop-blur">
+    <section className="relative flex flex-col w-full min-h-full lg:h-full lg:min-h-0 flex-1 bg-muted/20">
+      <header className="shrink-0 flex items-center gap-2 border-b bg-card/95 p-3 backdrop-blur sticky top-0 z-20">
         {isMobile ? (
           <Button size="icon" variant="ghost" onClick={onBack} aria-label="Back to conversations">
             <ArrowLeft className="h-4 w-4" />
@@ -297,7 +297,7 @@ export function ChatPanel({
       <div
         ref={containerRef}
         onScroll={onScroll}
-        className="flex-1 min-h-0 space-y-3 overflow-y-auto bg-[radial-gradient(circle_at_center,hsl(var(--muted))_0%,transparent_68%)] p-3 lg:p-4"
+        className="flex-1 min-h-0 space-y-3 overflow-y-auto overflow-x-hidden bg-[radial-gradient(circle_at_center,hsl(var(--muted))_0%,transparent_68%)] p-3 lg:p-4"
       >
         {messages === undefined ? (
           <div className="space-y-3">

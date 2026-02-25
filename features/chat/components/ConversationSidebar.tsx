@@ -35,7 +35,7 @@ export function ConversationSidebar({
   onConversationSelect,
 }: ConversationSidebarProps) {
   return (
-    <aside className="group relative flex h-full w-full flex-col border-r bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:w-90 shadow-2xl shadow-rose-200/60 backdrop-blur-xl overflow-hidden">
+    <aside className="group relative flex w-full flex-col border-r bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-full lg:w-90 shadow-2xl shadow-rose-200/60 backdrop-blur-xl overflow-y-auto lg:overflow-hidden lg:min-h-0">
       
       {/* ✨ Romantic Floating Hearts */}
       <div className="absolute inset-0 opacity-25 pointer-events-none overflow-hidden">
@@ -46,7 +46,7 @@ export function ConversationSidebar({
       </div>
 
       {/* ================= HEADER ================= */}
-      <header className="relative z-20 flex items-center justify-between border-b border-rose-200/50 bg-gradient-to-r from-white/95 via-rose-50/95 to-pink-50/95 px-5 py-5 backdrop-blur-2xl shadow-lg shadow-rose-200/40">
+      <header className="shrink-0 relative z-20 flex items-center justify-between border-b border-rose-200/50 bg-gradient-to-r from-white/95 via-rose-50/95 to-pink-50/95 px-5 py-5 backdrop-blur-2xl shadow-lg shadow-rose-200/40">
         <div className="flex items-center gap-4">
           <div className="relative">
             <Avatar className="h-14 w-14 ring-4 ring-white/70 shadow-2xl border-4 border-rose-200/50">

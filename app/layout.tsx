@@ -18,8 +18,8 @@ export default function RootLayout({
   const clerkConfigured = isClerkConfigured();
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <html lang="en" suppressHydrationWarning className="h-full">
+      <body className="h-full">
         {clerkConfigured ? (
           <ClerkProvider>
             <ConvexClientProvider>

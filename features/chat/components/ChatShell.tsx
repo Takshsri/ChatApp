@@ -17,7 +17,7 @@ export function ChatShell() {
 
   if (authState === undefined) {
     return (
-      <div className="relative h-dvh overflow-hidden bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95">
+      <div className="relative min-h-dvh overflow-y-auto bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-dvh lg:overflow-hidden">
         {/* Romantic floating hearts background */}
         <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
           <div className="absolute top-20 left-20 h-64 w-64 rounded-full bg-gradient-to-r from-rose-400/40 to-pink-400/40 blur-3xl animate-pulse" />
@@ -42,7 +42,7 @@ export function ChatShell() {
 
   if (!authState.isAuthenticated) {
     return (
-      <main className="relative flex h-dvh items-center justify-center p-8 bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95">
+      <main className="relative flex min-h-dvh items-center justify-center p-8 bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-dvh lg:overflow-hidden">
         {/* Love theme background hearts */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <div className="absolute top-1/4 left-1/4 h-80 w-80 rounded-full bg-gradient-to-r from-rose-400/30 to-pink-400/30 blur-3xl animate-pulse" />
@@ -83,7 +83,7 @@ export function ChatShell() {
 
   if (!authState.hasProfile) {
     return (
-      <main className="relative flex h-dvh items-center justify-center p-8 bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95">
+      <main className="relative flex min-h-dvh items-center justify-center p-8 bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-dvh lg:overflow-hidden">
         <div className="relative z-10 w-full max-w-lg rounded-3xl border-4 border-rose-200/50 bg-white/90 p-10 shadow-2xl shadow-rose-300/40 backdrop-blur-2xl text-center">
           <div className="mx-auto mb-8 h-24 w-24 rounded-3xl bg-gradient-to-br from-rose-500/40 via-pink-500/40 to-purple-500/40 flex items-center justify-center shadow-2xl border-4 border-white/60 animate-pulse">
             <HeartHandshake className="h-16 w-16 text-rose-500 drop-shadow-2xl" />
@@ -195,8 +195,8 @@ function AuthenticatedChatShell() {
 
   if (!currentUser) {
     return (
-      <div className="relative h-dvh overflow-hidden bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95">
-        <div className="grid h-full grid-cols-1 overflow-hidden lg:grid-cols-[360px_1fr] relative z-10 p-6">
+      <div className="relative min-h-dvh overflow-y-auto bg-gradient-to-br from-rose-50/95 via-pink-50/95 to-purple-100/95 lg:h-dvh lg:overflow-hidden">
+        <div className="grid min-h-full grid-cols-1 lg:overflow-hidden lg:grid-cols-[360px_1fr] lg:h-full relative z-10 p-6 lg:p-6">
           <div className="space-y-4 border-r bg-white/60 backdrop-blur-xl rounded-3xl p-6">
             <Skeleton className="h-16 w-full rounded-3xl" />
             <Skeleton className="h-28 w-full rounded-3xl" />
@@ -254,7 +254,7 @@ function AuthenticatedChatShell() {
   };
 
   return (
-    <div className="relative h-dvh min-h-0 overflow-hidden bg-gradient-to-br from-rose-50/98 via-pink-50/98 to-purple-100/98">
+    <div className="relative w-full min-h-dvh overflow-y-auto lg:h-dvh lg:overflow-hidden lg:min-h-0 bg-gradient-to-br from-rose-50/98 via-pink-50/98 to-purple-100/98">
       {/* 🌟 Full page romantic floating hearts & sparkles */}
       <div className="absolute inset-0 overflow-hidden opacity-15 pointer-events-none">
         <div className="absolute top-10 left-10 h-48 w-48 rounded-full bg-gradient-to-r from-rose-400/50 to-pink-400/50 blur-3xl animate-pulse" />
@@ -266,7 +266,7 @@ function AuthenticatedChatShell() {
       </div>
 
       {/* 💖 Main Love Chat Layout */}
-      <div className="relative z-10 grid h-full grid-cols-1 lg:grid-cols-[minmax(360px,400px)_1fr] overflow-hidden">
+      <div className="relative z-10 flex flex-col w-full lg:grid lg:grid-cols-[minmax(360px,400px)_1fr] lg:h-full lg:overflow-hidden">
         
         {/* 💕 Love Sidebar */}
         {showSidebar ? (
