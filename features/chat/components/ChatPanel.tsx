@@ -318,7 +318,7 @@ export function ChatPanel({
                 <div
                   className={`rounded-2xl text-sm shadow-sm transition-all duration-200 hover:shadow ${
                     isMine
-                      ? "max-w-[68%] rounded-br-md bg-primary px-2.5 py-1.5 text-primary-foreground lg:max-w-[46%]"
+                      ? "max-w-[68%] rounded-br-md bg-pink-500 text-white px-2.5 py-1.5 text-pink-foreground lg:max-w-[46%]"
                       : "max-w-[88%] rounded-bl-md border bg-card px-3 py-2 lg:max-w-[72%]"
                   }`}
                 >
@@ -429,7 +429,7 @@ export function ChatPanel({
                           }
                           className={`rounded-full border px-2 py-0.5 text-xs transition ${
                             reaction.reactedByMe
-                              ? "border-primary bg-primary/10"
+                              ? "border-pink bg-pink/10"
                               : "bg-background/50"
                           }`}
                           aria-label={`Toggle ${reaction.emoji} reaction`}

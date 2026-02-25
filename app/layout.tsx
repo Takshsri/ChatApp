@@ -6,7 +6,7 @@ import SyncUser from "../components/SyncUser";
 import "./globals.css";
 
 export const metadata = {
-  title: "Tars Chat",
+  title: "Chat App",
   description: "Realtime Chat App",
 };
 
