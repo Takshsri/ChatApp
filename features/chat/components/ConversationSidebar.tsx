@@ -73,7 +73,7 @@ export function ConversationSidebar({
         </div>
 
         <div className="flex items-center gap-3">
-  {/* Theme Toggle with Love Theme */}
+
 
   
   {/* 🔥 USERBUTTON = LOGOUT BUTTON */}
