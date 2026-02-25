@@ -5,7 +5,6 @@ import { HeartHandshake, Heart } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { formatChatTimestamp } from "@/lib/date";
 import { ConversationId, ConversationListItem, User } from "@/types/chat";
 import { UserSearchList } from "@/features/users/components/UserSearchList";
@@ -74,9 +73,30 @@ export function ConversationSidebar({
         </div>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle className="p-2 rounded-2xl hover:bg-gradient-to-r hover:from-rose-500/10 hover:to-pink-500/10 hover:shadow-md hover:shadow-rose-400/20 transition-all duration-300 hover:scale-105" />
-          <UserButton />
-        </div>
+  {/* Theme Toggle with Love Theme */}
+
+  
+  {/* 🔥 USERBUTTON = LOGOUT BUTTON */}
+<UserButton 
+  appearance={{
+    elements: {
+      // ✨ NO BLACK SHADOW - Clean glow only
+      userButtonBox: "rounded-3xl bg-gradient-to-r from-rose-50/95 via-pink-500/95 to-purple-500/95 border-3 border-rose-400/60 p-3 hover:scale-110 hover:from-rose-600/95 hover:via-pink-600/95 hover:to-purple-600/95 transition-all duration-400 backdrop-blur-xl ring-4 ring-rose-400/40 hover:ring-rose-500/50",
+      
+      // ✨ Fixed typo + clean text
+      userButtonText: "font text-white text-lg drop-shadow-sm", 
+      
+      // ✨ Clean glassmorphism dropdown
+      userButtonPopoverCard: "bg-gradient-to-br from-rose-50/8 via-pink-50/98 to-purple-50/98 backdrop-blur-2xl shadow-lg shadow-rose-200/30 border-2 border-rose-200/40 rounded-2xl",
+      
+      // ✨ Love theme buttons
+      userButtonPopoverButton: "hover:bg-gradient-to-r hover:from-rose-500/20 hover:to-pink-500/20 rounded-2xl font-bold text-rose-700 hover:text-rose-800 hover:shadow-md hover:shadow-rose-400/30 transition-all duration-300 backdrop-blur-sm"
+    }
+  }}
+/>
+
+</div>
+
       </header>
 
       {/* ================= SEARCH (LOVE THEMED) ================= */}
